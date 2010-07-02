@@ -56,14 +56,19 @@ class syntax_plugin_githubbadge extends DokuWiki_Syntax_Plugin {
         $url = 'http://github.com/'.rawurlencode($data['user']).'/'.rawurlencode($data['project']);
 
         $R->doc .= '<div class="plugin_githubbadge">';
-        $R->doc .= '<b><a href="'.$url.'">'.hsc($data['project']).'</a></b>';
-        $R->doc .= '<p class="description">'.hsc($info->description).'</p>';
+
+
         $R->doc .= '<p class="info">';
-        $R->doc .= '<span class="watchers" title="Watchers">Watchers: <a href="'.$url.'/watchers">'.hsc($info->watchers).'</a></span> ';
-        $R->doc .= '<span class="forks" title="Forks">Forks: <a href="'.$url.'/network">'.hsc($info->forks).'</a></span> ';
+        $R->doc .= '<span class="watchers" title="Watchers"><span>Watchers: </span><a href="'.$url.'/watchers">'.hsc($info->watchers).'</a></span> ';
+        $R->doc .= '<span class="forks" title="Forks"><span>Forks: </span><a href="'.$url.'/network">'.hsc($info->forks).'</a></span> ';
         if($info->has_issues){
-            $R->doc .= '<span class="issues" title="Issues">Issues: <a href="'.$url.'/issues">'.hsc($info->open_issues).'</a></span> ';
+            $R->doc .= '<span class="issues" title="Issues"><span>Issues: </span><a href="'.$url.'/issues">'.hsc($info->open_issues).'</a></span> ';
         }
+        $R->doc .= '</p>';
+
+        $R->doc .= '<p class="description">';
+        $R->doc .= '<b><a href="'.$url.'">'.hsc($data['project']).'</a></b><br />';
+        $R->doc .= hsc($info->description);
         $R->doc .= '</p>';
 
         $R->doc .= $this->_activityimage($data['user'],$data['project']);

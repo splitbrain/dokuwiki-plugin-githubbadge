@@ -7,4 +7,36 @@ div.plugin_githubbadge {
     text-align: left;
     padding: 4px;
     background-color: #fff;
+    overflow: hidden;
 }
+
+div.plugin_githubbadge p.description {
+    float: left;
+    width: 200px;
+    overflow: hidden;
+    font-size: 95%;
+}
+
+div.plugin_githubbadge p.info {
+    float: right;
+    width: 40px;
+    padding-right: 5px;
+}
+
+div.plugin_githubbadge span span {
+    display: none;
+}
+
+div.plugin_githubbadge span.watchers a {
+    background: transparent url(pix/eye.png) no-repeat top left;
+    padding-left: 18px;
+}
+div.plugin_githubbadge span.forks a {
+    background: transparent url(pix/arrow-branch-090.png) no-repeat top left;
+    padding-left: 18px;
+}
+div.plugin_githubbadge span.issues a {
+    background: transparent url(pix/bug.png) no-repeat top left;
+    padding-left: 18px;
+}
+
