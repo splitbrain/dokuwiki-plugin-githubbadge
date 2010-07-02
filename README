@@ -1,0 +1,10 @@
+A DokuWiki plugin to display github project data in a wiki page.
+
+Licensed under the GPL Version 2.
+
+Uses ideas and algorithms from Django github Sparklines
+(http://www.flother.com/blog/2009/django-github-sparklines/) licensed under
+the GPL Version 2.
+
+Uses icons based on the Fugue Icon Set (http://p.yusukekamiyamane.com/) by
+Yusuke Kamiyamane licensed under the Creative Comons Attribution 3.0 license.
