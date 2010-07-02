@@ -1,7 +1,7 @@
 base   githubbadge
 author Andreas Gohr
 email  andi@splitbrain.org
-date   2010-07-01
+date   2010-07-02
 name   githubbadge plugin
 desc   Display some info about a github repository
 url    http://www.dokuwiki.org/plugin:githubbadge

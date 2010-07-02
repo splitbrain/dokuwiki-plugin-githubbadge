@@ -37,9 +37,26 @@ class syntax_plugin_githubbadge extends DokuWiki_Syntax_Plugin {
 
     function handle($match, $state, $pos, &$handler){
         $match = substr($match,14,-2);
+
+        $align = 0;
+        if(substr($match,0,1) == ' ') $align += 1;
+        if(substr($match,-1) == ' ') $align += 2;
+        if($align == 1){
+            $align = 'plugin_githubbadge_right';
+        }elseif($align == 2){
+            $align = 'plugin_githubbadge_left';
+        }elseif($align = 3){
+            $align = 'plugin_githubbadge_center';
+        }else{
+            $align = '';
+        }
+        $match = trim($match);
+
         list($user,$project) = explode('/',$match);
 
-        $data = array('user'=>$user,'project'=>$project);
+        $data = array( 'user'    => $user,
+                       'project' => $project,
+                       'align'   => $align );
 
         return $data;
     }
@@ -55,7 +72,7 @@ class syntax_plugin_githubbadge extends DokuWiki_Syntax_Plugin {
 
         $url = 'http://github.com/'.rawurlencode($data['user']).'/'.rawurlencode($data['project']);
 
-        $R->doc .= '<div class="plugin_githubbadge">';
+        $R->doc .= '<div class="plugin_githubbadge '.$data['align'].'">';
 
 
         $R->doc .= '<p class="info">';
