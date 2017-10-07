@@ -35,7 +35,7 @@ class syntax_plugin_githubbadge extends DokuWiki_Syntax_Plugin {
         $this->Lexer->addSpecialPattern('\{\{githubbadge>.*?\}\}',$mode,'plugin_githubbadge');
     }
 
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Handler $handler){
         $match = substr($match,14,-2);
 
         $align = 0;
@@ -61,7 +61,7 @@ class syntax_plugin_githubbadge extends DokuWiki_Syntax_Plugin {
         return $data;
     }
 
-    function render($mode, &$R, $data) {
+    function render($mode, Doku_Renderer $R, $data) {
         if($mode != 'xhtml') return false;
 
         $info = $this->_repoinfo($data['user'],$data['project']);
